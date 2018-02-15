@@ -7,7 +7,8 @@ RUN apt-get update
 RUN apt-get install -y curl tcsh libglu1-mesa libgomp1 libjpeg62
 RUN curl ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.0.tar.gz | tar xvz -C /usr/local
 
-RUN apt-get install -y jq
+#recon-all dependencies
+RUN apt-get install -y jq bc libsys-hostname-long-perl
 
 #make it work under singularity
 RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
