@@ -9,7 +9,7 @@ RUN curl ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/freesurfer-L
 RUN apt-get update && apt-get install -y jq bc libsys-hostname-long-perl libglib2.0
 
 #make it work under singularity
-RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft /scratch
+RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft /scratch /mnt/share1
 
 ENV FREESURFER_HOME /usr/local/freesurfer
 ENV FMRI_ANALYSIS_DIR /usr/local/freesurfer/fsfast
