@@ -5,4 +5,9 @@
 #singularity exec -e docker://brainlife/freesurfer bash -c "cp $FREESURFER_LICENSE /usr/local/freesurfer/license.txt && mri_convert testdata/t1.nii.gz test.mgz"
 
 export FREESURFER_LICENSE="hayashis@iu.edu 29511 *CPmh9xvKQKHE FSg0ijTusqaQc"
-singularity exec -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREESURFER_LICENSE > /usr/local/freesurfer/license.txt && mri_convert testdata/t1.nii.gz test.mgz"
+#singularity exec -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREESURFER_LICENSE > /usr/local/freesurfer/license.txt && mri_convert testdata/t1.nii.gz test.mgz"
+#singularity exec -e docker://brainlife/freesurfer:dev bash
+
+#docker run --rm -it brainlife/freesurfer:dev ldd /usr/local/freesurfer/MCRv84/bin/glnxa64/libmwmclbase.so
+#:docker run --rm -it brainlife/freesurfer:dev ldd /usr/local/freesurfer/MCRv84/bin/glnxa64/libmwmclbase.so
+docker run -v /home/hayashis/.config/freesurfer.license.txt:/usr/local/freesurfer/license.txt -v `pwd`/output:/subject --env SUBJECTS_DIR=/subject --rm -it brainlife/freesurfer:dev segmentThalamicNuclei.sh .
