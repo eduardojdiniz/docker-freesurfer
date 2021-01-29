@@ -1,1 +1,2 @@
-singularity exec docker://brainlife/freesurfer-mini:6.0.1 mri_convert ../test.mgz test.nii.gz
+echo $FREESURFER_LICENSE > license
+singularity exec -B `pwd`/license:/usr/local/freesurfer/.license docker://brainlife/freesurfer-mini:7.1.1 mri_convert ../test.mgz test.nii.gz

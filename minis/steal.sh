@@ -2,12 +2,18 @@
 set -e
 set -x
 
-mkdir -p bin
-cp /mnt/scratch/freesurfer/bin/mri_convert.bin bin/mri_convert
-cp /mnt/scratch/freesurfer/bin/mri_vol2vol.bin bin/mri_vol2vol
-cp /mnt/scratch/freesurfer/bin/mri_binarize.bin bin/mri_binarize
+#FREESURFER_HOME=/usr/local/freesurfer
 
-cp /mnt/scratch/freesurfer/bin/mris_convert bin
-cp /mnt/scratch/freesurfer/bin/mri_surf2vol bin
-cp /mnt/scratch/freesurfer/bin/mri_surf2surf bin
-cp /mnt/scratch/freesurfer/bin/mri_label2vol bin
+mkdir -p bin
+cp $FREESURFER_HOME/bin/mri_convert bin
+cp $FREESURFER_HOME/bin/mri_vol2vol bin
+cp $FREESURFER_HOME/bin/mri_binarize bin
+cp $FREESURFER_HOME/bin/mri_mask bin
+cp $FREESURFER_HOME/bin/mri_surf2vol bin
+cp $FREESURFER_HOME/bin/mri_surf2surf bin
+cp $FREESURFER_HOME/bin/mri_label2vol bin
+cp $FREESURFER_HOME/bin/mri_ca_label bin
+cp $FREESURFER_HOME/bin/mri_threshold bin
+
+cp $FREESURFER_HOME/bin/mris_convert bin
+cp $FREESURFER_HOME/bin/mris_calc bin

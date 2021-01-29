@@ -1,12 +1,14 @@
 FROM centos:7
-MAINTAINER Soichi Hayashi <hayashis@iu.edu>
 
 ENV PATH /freesurfer-bin:$PATH
 
-#RUN yum install -y epel-release && yum install -y tcsh jq libXext libXt bc libgomp perl bc
-RUN yum install -y libgomp
+RUN yum install -y epel-release && yum install -y libgomp jq 
+#tcsh jq libXext libXt bc libgomp perl bc
 
 COPY bin /freesurfer-bin
 
-#shouldn't matter
-ENV FREESURFER_HOME /tmp 
+#where we put the license.txt in
+ENV FREESURFER_HOME /usr/local/freesurfer
+
+#some command line that doesn't need SUBJECTS_DIR asks for this
+ENV SUBJECTS_DIR=$PWD
